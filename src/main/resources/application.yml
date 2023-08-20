@@ -3,12 +3,31 @@ spring:
     show-sql: true
     properties:
       hibernate:
-        format_sql:true
-
+        format_sql: true
     defer-datasource-initialization: true
+
+  sql:
+    init:
+      encoding: UTF-8
+
   datasource:
     url: jdbc:h2:mem:testdb
-
+    username: sa
   h2:
     console:
       enabled: true
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 395860056769-1202ck689dvd044fja05hbtgu8rtcr98.apps.googleusercontent.com
+            client-secret: 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
+            redirect-uri: http://localhost:8080/login/oauth2/code/google
+            scope:
+              - email
+              - profile
+
+jwt:
+  issuser: glycerine@live.co.kr
+  secret_key: study-springboot
